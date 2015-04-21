@@ -81,15 +81,15 @@ module ForemanDocker
         security_block :registries do
           permission :view_registries,
                      { :registries => [:index, :show],
-                       :'api/v2/docker_registries' => [:index, :show] },
+                       :'api/v2/registries' => [:index, :show] },
                      :resource_type => 'DockerRegistry'
           permission :create_registries,
                      { :registries  => [:new, :create, :update, :edit],
-                       :'api/v2/docker_registries' => [:create, :update] },
+                       :'api/v2/registries' => [:create, :update] },
                      :resource_type => 'DockerRegistry'
           permission :destroy_registries,
                      { :registries => [:destroy],
-                       :'api/v2/docker_registries' => [:destroy] },
+                       :'api/v2/registries' => [:destroy] },
                      :resource_type => 'DockerRegistry'
         end
 

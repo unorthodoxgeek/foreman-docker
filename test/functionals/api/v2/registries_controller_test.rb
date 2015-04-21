@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 module Api
   module V2
-    class DockerRegistriesControllerTest < ActionController::TestCase
+    class RegistriesControllerTest < ActionController::TestCase
       setup do
         @registry = FactoryGirl.create(:docker_registry)
       end
@@ -24,14 +24,14 @@ module Api
 
       test 'creates a new registry with valid params' do
         docker_attrs = FactoryGirl.attributes_for(:docker_registry)
-        post :create, :docker_registry => docker_attrs
+        post :create, :registry => docker_attrs
         assert_response :success
       end
 
       test 'does not create a new registry with invalid params' do
         docker_attrs = FactoryGirl.attributes_for(:docker_registry)
         docker_attrs.delete(:name)
-        post :create, :docker_registry => docker_attrs
+        post :create, :registry => docker_attrs
         assert_response 422
       end
 
